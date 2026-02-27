@@ -1,0 +1,8 @@
+/.gradle
+/build
+/out
+/batch_calls.db
+*.log
+*.tmp
+/.idea
+*.iml
