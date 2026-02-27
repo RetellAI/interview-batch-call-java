@@ -20,7 +20,7 @@ We distribute a zip that excludes internal artifacts like `ANSWER.md` via `git a
 ./scripts/build-interviewee.sh
 ```
 
-Output: `dist/interviewee.zip`
+Output: `dist/retell-interview.zip`
 
 ### Notes
 
