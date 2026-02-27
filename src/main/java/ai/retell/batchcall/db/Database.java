@@ -57,8 +57,9 @@ public class Database {
 			CREATE TABLE IF NOT EXISTS users (
 			  id TEXT PRIMARY KEY,
 			  concurrency_limit INTEGER NOT NULL DEFAULT 10
-			);
-
+			)
+			""");
+		db.exec("""
 			CREATE TABLE IF NOT EXISTS batches (
 			  id TEXT PRIMARY KEY,
 			  user_id TEXT NOT NULL,
@@ -67,8 +68,9 @@ public class Database {
 			  created_at INTEGER NOT NULL,
 			  completed_at INTEGER,
 			  FOREIGN KEY (user_id) REFERENCES users(id)
-			);
-
+			)
+			""");
+		db.exec("""
 			CREATE TABLE IF NOT EXISTS calls (
 			  id INTEGER PRIMARY KEY AUTOINCREMENT,
 			  batch_id TEXT NOT NULL,
@@ -83,13 +85,12 @@ public class Database {
 			  duration_ms INTEGER,
 			  FOREIGN KEY (batch_id) REFERENCES batches(id),
 			  FOREIGN KEY (user_id) REFERENCES users(id)
-			);
-
-			CREATE INDEX IF NOT EXISTS idx_calls_user_id ON calls(user_id);
-			CREATE INDEX IF NOT EXISTS idx_calls_status ON calls(status);
-			CREATE INDEX IF NOT EXISTS idx_batches_user_id ON batches(user_id);
-			CREATE INDEX IF NOT EXISTS idx_batches_status ON batches(status);
+			)
 			""");
+		db.exec("CREATE INDEX IF NOT EXISTS idx_calls_user_id ON calls(user_id)");
+		db.exec("CREATE INDEX IF NOT EXISTS idx_calls_status ON calls(status)");
+		db.exec("CREATE INDEX IF NOT EXISTS idx_batches_user_id ON batches(user_id)");
+		db.exec("CREATE INDEX IF NOT EXISTS idx_batches_status ON batches(status)");
 
 		List<Map<String, Object>> seedUsers = List.of(
 			Map.of("id", "user_1", "concurrency_limit", 10),

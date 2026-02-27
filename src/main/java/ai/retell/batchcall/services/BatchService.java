@@ -141,13 +141,13 @@ public class BatchService {
 			return null;
 		});
 
-		return Map.of(
-			"id", batchId,
-			"user_id", userId,
-			"status", "pending",
-			"scheduled_at", scheduledAt == null ? null : scheduledAt,
-			"created_at", createdAt,
-			"total_calls", records.size()
-		);
+		java.util.Map<String, Object> response = new java.util.HashMap<>();
+		response.put("id", batchId);
+		response.put("user_id", userId);
+		response.put("status", "pending");
+		response.put("scheduled_at", scheduledAt == null ? null : scheduledAt);
+		response.put("created_at", createdAt);
+		response.put("total_calls", records.size());
+		return response;
 	}
 }
