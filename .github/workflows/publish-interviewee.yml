@@ -1,0 +1,36 @@
+name: Publish interviewee package
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build interviewee zip
+        run: ./scripts/build-interviewee.sh
+
+      - name: Create release tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          tag="interviewee-$(date -u +'%Y%m%d-%H%M%S')"
+          git tag "$tag"
+          git push origin "$tag"
+          echo "RELEASE_TAG=$tag" >> "$GITHUB_ENV"
+
+      - name: Publish GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.RELEASE_TAG }}
+          name: retell-interview
+          artifacts: dist/retell-interview.zip
+          makeLatest: true
