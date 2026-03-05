@@ -8,12 +8,6 @@ group = 'ai.retell'
 version = '0.0.1-SNAPSHOT'
 description = 'Batch Call System (Interview Repo)'
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
-	}
-}
-
 repositories {
 	mavenCentral()
 }
