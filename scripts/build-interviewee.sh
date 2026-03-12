@@ -3,7 +3,7 @@ set -euo pipefail
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 out_dir="$root_dir/dist"
-archive_path="$out_dir/retell-interview.zip"
+archive_path="$out_dir/retell-interview-java.zip"
 
 mkdir -p "$out_dir"
 rm -f "$out_dir"/*.zip

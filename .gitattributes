@@ -1,5 +1,9 @@
 ANSWER.md export-ignore
 README.md export-ignore
 batch_calls.db export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.github/ export-ignore
+scripts/build-interviewee.sh export-ignore
 build/ export-ignore
 dist/ export-ignore

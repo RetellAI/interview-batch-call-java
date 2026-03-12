@@ -32,5 +32,5 @@ jobs:
         with:
           tag: ${{ env.RELEASE_TAG }}
           name: retell-interview
-          artifacts: dist/retell-interview.zip
+          artifacts: dist/retell-interview-java.zip
           makeLatest: true
