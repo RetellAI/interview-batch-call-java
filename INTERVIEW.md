@@ -14,7 +14,7 @@
 # Start the server:
 
 ```sh
-./gradlew bootRun
+mvn spring-boot:run
 ```
 
 # Submit a new batch (scheduled 10 minutes from now):
