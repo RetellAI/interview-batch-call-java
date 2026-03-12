@@ -11,7 +11,7 @@ if [[ -n "$pattern" ]]; then
     case-c) pattern="caseC" ;;
     case-d) pattern="caseD" ;;
   esac
-  mvn -f "$root_dir/pom.xml" -Dtest="ScenarioTests#${pattern}" test
+  ./gradlew -p "$root_dir" test --tests "ai.retell.batchcall.ScenarioTests.${pattern}"
 else
-  mvn -f "$root_dir/pom.xml" test
+  ./gradlew -p "$root_dir" test
 fi

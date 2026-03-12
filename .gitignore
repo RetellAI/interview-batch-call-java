@@ -1,6 +1,5 @@
 /.gradle
 /build
-/target
 /out
 /batch_calls.db
 *.log

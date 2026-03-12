@@ -7,7 +7,7 @@ This repository is used for backend engineer interviews. Candidate instructions 
 ## Development setup
 
 ```sh
-mvn spring-boot:run
+./gradlew bootRun
 ```
 
 The server listens on port 3456 by default. See `INTERVIEW.md` for sample API usage.
